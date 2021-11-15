@@ -318,176 +318,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/01/27/%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8Visual-Studio-Code/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/scadaclub.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Robin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/27/%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8Visual-Studio-Code/" itemprop="url">代码编辑器Visual Studio Code</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T13:15:00+08:00">
-                2019-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VBScript/" itemprop="url" rel="index">
-                    <span itemprop="name">VBScript</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VBA/" itemprop="url" rel="index">
-                    <span itemprop="name">VBA</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong><i class="fa fa-external-link"></i></a>（简称VS Code）是一个由微软开发的，同时支持Windows、Linux、和MacOS系统且开放源代码的代码编辑器，它支持测试，并内置了Git版本控制功能，同时也具有开发环境功能，例如代码补全、代码片段、和代码重构等，该编辑器支持用户个人化配置，例如改变主题颜色、键盘快捷方式等各种属性和参数，还在编辑器中内置了扩展程序管理的功能。</p>
-<p><img src="2019-01-27-13-21-55.png"></p>
-<h1 id="2-开发"><a href="#2-开发" class="headerlink" title="2.开发"></a>2.开发</h1><p><strong>Visual Studio Code</strong> 基于 <strong>Electron</strong> 开发。<strong>Electron</strong> 是一个基于 <strong>Chromium</strong> 的项目，可用于开发基于 <strong>Node.js</strong> 的本地应用程序。<strong>Visual Studio Code</strong> 使用 Blink 排版引擎渲染用户界面。虽然 <strong>Visual Studio Code</strong> 基于 Electron 框架，但并不是Atom的复刻。Code是由“Monaco”的编辑器核心制作，与 Visual Studio Team Services 相同。</p>
-<h1 id="3-历史"><a href="#3-历史" class="headerlink" title="3.历史"></a>3.历史</h1><p>微软在2015 Build大会上宣布即将开发 <strong>Visual Studio Code</strong>，在2015年4月29日发布第一个预览版本。<br>2015年11月18日，Code团队将其在GitHub上开源，并采用MIT许可证，同时宣布将支持扩展功能。<br>2016年4月14日，<strong>Visual Studio Code</strong>正式版发布，版本号为1.0.0。</p>
-<h1 id="4-功能和语言支持"><a href="#4-功能和语言支持" class="headerlink" title="4.功能和语言支持"></a>4.功能和语言支持</h1><p><strong>Visual Studio Code</strong>支持多种编程语言。与其他编辑器不同的是，Code的许多功能并不在菜单中显示，而是通过“命令面板”来调用。用户可以在命令面板中搜索和输入命令，从而实现指定功能，例如安装插件、设置属性等。默认地，打开命令面板的快捷键是<code>Ctrl+Shift+P</code>。<br>Code具备了现代文本编辑器所具有的功能，例如更改字符编码、更换换行符等。<br>下表是<strong>Visual Studio Code</strong>原生支持的语言：</p>
-<p><img src="2019-01-27-13-27-12.png"></p>
-<p><strong>Visual Studio Code</strong>对<code>C#</code>、<code>JavaScript</code>、和<code>TypeScript</code>的原生支持最为完备。<br>此外<strong>Visual Studio Code</strong>还支持扩展程序。通过安装扩展程序，Code可以支持更多新的语言、界面主题、测试器，以及更多的增值服务。<strong>Visual Studio Code</strong>的扩展程序运行于独立的进展中，确保编辑器运行速度不会被拖慢。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/01/25/%E5%85%8D%E8%B4%B9%E7%9A%84%E4%BA%91MQTT%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1%E7%AB%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1165,6 +995,183 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/01/23/%E8%A5%BF%E5%AE%B6%E8%BD%AF%E4%BB%B6%E5%85%B3%E4%BA%8ESet-PG-PC-Interface%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/scadaclub.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/23/%E8%A5%BF%E5%AE%B6%E8%BD%AF%E4%BB%B6%E5%85%B3%E4%BA%8ESet-PG-PC-Interface%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="url">西家软件关于Set PG-PC Interface的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-23T19:23:35+08:00">
+                2019-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WINCC/" itemprop="url" rel="index">
+                    <span itemprop="name">WINCC</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/STEP7/" itemprop="url" rel="index">
+                    <span itemprop="name">STEP7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-先谈下S7协议"><a href="#1-先谈下S7协议" class="headerlink" title="1.先谈下S7协议"></a>1.先谈下S7协议</h1><p>S7协议是西门子自动化系统核心通讯协议，独立于西门子各种通讯总线，可用于所有子网 (MPI，PROFIBUS，工业以太网)。下图是其ISO-OSI参考模型，关于S7协议详细内容，请阅读以前推送的文章《<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vtG3gdR7d2pNpa7e-xlUVQ">西门子S7以太网通讯协议<i class="fa fa-external-link"></i></a>》。</p>
+<p><img src="2019-01-24-13-39-56.png"></p>
+<p>以工业以太网的S7为例，Industrial Ethernet、IP、TCP、ISO协议就是它的基础，好比盖房子，没有这些地基S7这个房子就盖不起来。</p>
+<p><img src="2019-01-24-13-40-19.png"></p>
+<p>如双方进行ISO-on-TCP S7通讯时，必须先建立起TCP/IP这条路S7这辆车才能在上面跑。这个通讯双方定义为客户端和服务端，互称对方为通讯伙伴partner。如SIMATIC NET OPC SERVER、WINCC、Prodave、Applications、单边连接的主动激活端，都可看成客户端，来连接服务端如S7-PLC。</p>
+<h1 id="2-TCP-IP连接的建立"><a href="#2-TCP-IP连接的建立" class="headerlink" title="2.TCP/IP连接的建立"></a>2.TCP/IP连接的建立</h1><p>服务端Server监听其网络接口的IP的102端口（S7协议指定端口），客户端Client使用其选择的网络接口的IP地址和102端口建立与服务端的连接。连接过程称为“三次握手”，关于此详细内容可自行谷歌百度。</p>
+<p><img src="2019-01-24-13-41-30.png"></p>
+<p>如KEPServerEX使用Siemens TCP/IP Ethernet驱动连接S7-PLC，新建通道channel时直接设置客户端使用的网络接口。</p>
+<p><img src="2019-01-24-13-41-46.png"></p>
+<p>再如STEP 7 配置SIMATIC NET OPC SERVER使用ISO-on-TCP S7协议连接S7-PLC，直接选择添加OPC SERVER PC Station客户端已安装的通讯模块如“常规IE”。</p>
+<p><img src="2019-01-24-13-42-03.png"></p>
+<p>并设置网卡的IP地址，用于连接服务端S7-PLC。</p>
+<p><img src="2019-01-24-13-42-26.png"></p>
+<p>服务端S7-PLC，其系统自动监听CPU PN接口或CP PN接口IP地址的102端口，等待客户端连接。</p>
+<p>那WINCC作为客户端是如何配置其IP的？以S7-1200/1500驱动为例，连接参数中“IP地址”为服务端S7-1200 PLC IP，通过选择“访问点”来调用网络接口，这“访问点”来自哪？</p>
+<p><img src="2019-01-24-13-42-50.png"></p>
+<p>这时“Set PG-PC Interface”就登场了， 它用来添加/删除和配置、测试“访问点”，供应用程序如WINCC、STEP 7、Prodave来调用。</p>
+<p><img src="2019-01-24-13-43-06.png"></p>
+<h1 id="3-Set-PG-PC-Interface"><a href="#3-Set-PG-PC-Interface" class="headerlink" title="3.Set PG-PC Interface"></a>3.Set PG-PC Interface</h1><p>应用程序（除了STEP7）使用哪个访问点没有规定，可以自己添加访问点，并根据通讯连接的网络类型分配对应的接口就可以了。详细内容可查看“Set PG-PC Interface”帮助。<br>如使用Prodave6.dll编程连接S7-PLC时，通讯连接函数LoadConnection_ex6的pAccessPoint”访问点“参数，默认使用”S7ONLINE”，也可以赋值其它的访问点。</p>
+<p><img src="2019-01-24-13-43-52.png"></p>
+<p>对于STEP 7，只能使用”S7ONLINE (STEP 7)”访问点。我是这么理解的，如果你有STEP 7源代码，也可以把它改成其它访问点。</p>
+<h1 id="4-其它"><a href="#4-其它" class="headerlink" title="4.其它"></a>4.其它</h1><p>当系统中多个软件在“开始菜单”都有“Set PG-PC Interface”启动项时，从各自“启动命令行”可看出是同一程序（如Windows7 64中路径为<code>C:\Windows\SysWOW64\s7epatsx.exe</code>），只不过启动时带的参数不一样。</p>
+<p><img src="2019-01-24-13-44-31.png"></p>
+<p>STEP7 下启动命令行为：<code>C:\Windows\SysWOW64\s7epatsx.exe -lnl S7ONLINE -App=STEP7</code>，SIMATIC NET下为<code>C:\Windows\SysWOW64\s7epatsx.exe  -App=Simatic</code>。使用参数“-lnl 访问点”可限制“Set PG-PC Interface”只能设置这一个访问点。</p>
+<p>一般在“控制面板”中启动“Set PG-PC Interface”即可。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1219,7 +1226,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

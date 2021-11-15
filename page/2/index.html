@@ -422,33 +422,17 @@
       
         
           
-            <h1 id="1-先谈下S7协议"><a href="#1-先谈下S7协议" class="headerlink" title="1.先谈下S7协议"></a>1.先谈下S7协议</h1><p>S7协议是西门子自动化系统核心通讯协议，独立于西门子各种通讯总线，可用于所有子网 (MPI，PROFIBUS，工业以太网)。下图是其ISO-OSI参考模型，关于S7协议详细内容，请阅读以前推送的文章《<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vtG3gdR7d2pNpa7e-xlUVQ">西门子S7以太网通讯协议<i class="fa fa-external-link"></i></a>》。</p>
-<p><img src="2019-01-24-13-39-56.png"></p>
-<p>以工业以太网的S7为例，Industrial Ethernet、IP、TCP、ISO协议就是它的基础，好比盖房子，没有这些地基S7这个房子就盖不起来。</p>
-<p><img src="2019-01-24-13-40-19.png"></p>
-<p>如双方进行ISO-on-TCP S7通讯时，必须先建立起TCP/IP这条路S7这辆车才能在上面跑。这个通讯双方定义为客户端和服务端，互称对方为通讯伙伴partner。如SIMATIC NET OPC SERVER、WINCC、Prodave、Applications、单边连接的主动激活端，都可看成客户端，来连接服务端如S7-PLC。</p>
-<h1 id="2-TCP-IP连接的建立"><a href="#2-TCP-IP连接的建立" class="headerlink" title="2.TCP/IP连接的建立"></a>2.TCP/IP连接的建立</h1><p>服务端Server监听其网络接口的IP的102端口（S7协议指定端口），客户端Client使用其选择的网络接口的IP地址和102端口建立与服务端的连接。连接过程称为“三次握手”，关于此详细内容可自行谷歌百度。</p>
-<p><img src="2019-01-24-13-41-30.png"></p>
-<p>如KEPServerEX使用Siemens TCP/IP Ethernet驱动连接S7-PLC，新建通道channel时直接设置客户端使用的网络接口。</p>
-<p><img src="2019-01-24-13-41-46.png"></p>
-<p>再如STEP 7 配置SIMATIC NET OPC SERVER使用ISO-on-TCP S7协议连接S7-PLC，直接选择添加OPC SERVER PC Station客户端已安装的通讯模块如“常规IE”。</p>
-<p><img src="2019-01-24-13-42-03.png"></p>
-<p>并设置网卡的IP地址，用于连接服务端S7-PLC。</p>
-<p><img src="2019-01-24-13-42-26.png"></p>
-<p>服务端S7-PLC，其系统自动监听CPU PN接口或CP PN接口IP地址的102端口，等待客户端连接。</p>
-<p>那WINCC作为客户端是如何配置其IP的？以S7-1200/1500驱动为例，连接参数中“IP地址”为服务端S7-1200 PLC IP，通过选择“访问点”来调用网络接口，这“访问点”来自哪？</p>
-<p><img src="2019-01-24-13-42-50.png"></p>
-<p>这时“Set PG-PC Interface”就登场了， 它用来添加/删除和配置、测试“访问点”，供应用程序如WINCC、STEP 7、Prodave来调用。</p>
-<p><img src="2019-01-24-13-43-06.png"></p>
-<h1 id="3-Set-PG-PC-Interface"><a href="#3-Set-PG-PC-Interface" class="headerlink" title="3.Set PG-PC Interface"></a>3.Set PG-PC Interface</h1><p>应用程序（除了STEP7）使用哪个访问点没有规定，可以自己添加访问点，并根据通讯连接的网络类型分配对应的接口就可以了。详细内容可查看“Set PG-PC Interface”帮助。<br>如使用Prodave6.dll编程连接S7-PLC时，通讯连接函数LoadConnection_ex6的pAccessPoint”访问点“参数，默认使用”S7ONLINE”，也可以赋值其它的访问点。</p>
-<p><img src="2019-01-24-13-43-52.png"></p>
-<p>对于STEP 7，只能使用”S7ONLINE (STEP 7)”访问点。我是这么理解的，如果你有STEP 7源代码，也可以把它改成其它访问点。</p>
-<h1 id="4-其它"><a href="#4-其它" class="headerlink" title="4.其它"></a>4.其它</h1><p>当系统中多个软件在“开始菜单”都有“Set PG-PC Interface”启动项时，从各自“启动命令行”可看出是同一程序（如Windows7 64中路径为<code>C:\Windows\SysWOW64\s7epatsx.exe</code>），只不过启动时带的参数不一样。</p>
-<p><img src="2019-01-24-13-44-31.png"></p>
-<p>STEP7 下启动命令行为：<code>C:\Windows\SysWOW64\s7epatsx.exe -lnl S7ONLINE -App=STEP7</code>，SIMATIC NET下为<code>C:\Windows\SysWOW64\s7epatsx.exe  -App=Simatic</code>。使用参数“-lnl 访问点”可限制“Set PG-PC Interface”只能设置这一个访问点。</p>
-<p>一般在“控制面板”中启动“Set PG-PC Interface”即可。</p>
+          1.先谈下S7协议S7协议是西门子自动化系统核心通讯协议，独立于西门子各种通讯总线，可用于所有子网 (MPI，PROFIBUS，工业以太网)。下图是其ISO-OSI参考模型，关于S7协议详细内容，请阅读以前推送的文章《西门子S7以太网通讯协议》。
 
-          
+以工业以太网的S7为例，Industrial Et
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/%E8%A5%BF%E5%AE%B6%E8%BD%AF%E4%BB%B6%E5%85%B3%E4%BA%8ESet-PG-PC-Interface%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -610,22 +594,16 @@
       
         
           
-            <h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h1><p>相信很多初学者做工程时会碰到这样的问题：由于WINCC安装在一台电脑，STEP 7或STEP 7 (TIA Portal)安装在另外一台电脑（如工程师站），想用 WINCC连接PLC仿真软件S7-PLCSIM，来进行项目测试，是无法实现的。</p>
-<p>因为WINCC是使用本机的<span style="color:#00ffff;"><strong>PLCSIM</strong></span>接口来访问S7-PLCSIM（如TCP/IP连接<span style="color:#00ffff;"><strong>PLCSIM.TCPIP.1</strong></span>，PLC没有配置的端口在S7-PLCSIM中显示为灰色无法选择）。</p>
-<p>然而<strong>PLCSIM</strong>是内部接口只能在本机上访问。</p>
-<p><img src="2019-01-24-13-54-45.png"></p>
-<p><img src="2019-01-24-13-54-54.png"></p>
-<h1 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h1><h2 id="2-1方法"><a href="#2-1方法" class="headerlink" title="2.1方法"></a>2.1方法</h2><p>在工程中，运行WINCC的非工程师站一般是不会安装STEP 7的，那怎么解决上面的问题。其实也简单，把对应版本的S7-PLCSIM安装在WINCC的机器上就可以了。</p>
-<p>以博途V14SP1为例，如果仿真S7-300/400，安装S7-PLCSIM V5.4SP8 （单独安装包为：<code>博途仿真V14SP1安装包\InstData\PLCSim</code>）即可。</p>
-<p><img src="2019-01-24-13-56-10.png"></p>
-<p>因为S7-PLCSIM V5.4SP8本身就很小（安装空间只需几十MB），也不会对安装的机器造成影响，即使要卸载也很容易。</p>
-<h2 id="2-2操作步骤"><a href="#2-2操作步骤" class="headerlink" title="2.2操作步骤"></a>2.2操作步骤</h2><p>在工程师站打开S7-PLCSIM仿真器，先把要测试的PLC程序下载到仿真器，然后保存为*.plc文件。</p>
-<p><img src="2019-01-24-13-57-00.png"></p>
-<p>再把保存的文件拷贝到WINCC机器上，用S7-PLCSIM打开，就可以和WINCC进行测试了。</p>
-<h1 id="3-其它"><a href="#3-其它" class="headerlink" title="3.其它"></a>3.其它</h1><p>而对于S7-1500 PLC，可以使用S7-PLCSIM Advanced进行仿真，它既可以通过内部接口连接也可以通过外部接口连接，所以就不存在上面的问题了。</p>
-<p><img src="2019-01-24-13-57-48.png"></p>
-
-          
+          1.问题描述相信很多初学者做工程时会碰到这样的问题：由于WINCC安装在一台电脑，STEP 7或STEP 7 (TIA Portal)安装在另外一台电脑（如工程师站），想用 WINCC连接PLC仿真软件S7-PLCSIM，来进行项目测试，是无法实现的。
+因为WINCC是使用本机的PLCSIM接口来访
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/WINCC%E4%B8%8ES7-PLCSIM%E8%BF%9E%E6%8E%A5%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

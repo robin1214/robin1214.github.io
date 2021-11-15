@@ -160,6 +160,13 @@
   </url>
   
   <url>
+    <loc>https://robin1214.github.io/categories/STEP7/</loc>
+    <lastmod>2021-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://robin1214.github.io/categories/MQTT/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -182,13 +189,6 @@
   
   <url>
     <loc>https://robin1214.github.io/categories/%E9%80%9A%E8%AE%AF/</loc>
-    <lastmod>2021-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://robin1214.github.io/categories/STEP7/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

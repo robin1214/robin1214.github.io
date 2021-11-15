@@ -710,7 +710,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/03/09/WINCC%E4%B8%8E%E4%BD%BF%E7%94%A8%E9%9D%9E%E6%A0%87%E5%87%86%E6%88%96%E5%86%B7%E5%83%BB%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE%E7%9A%84%E8%AE%BE%E5%A4%87%E9%80%9A%E8%AE%AF/">
+    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/01/25/%E5%85%8D%E8%B4%B9%E7%9A%84%E4%BA%91MQTT%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1%E7%AB%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -729,7 +729,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/09/WINCC%E4%B8%8E%E4%BD%BF%E7%94%A8%E9%9D%9E%E6%A0%87%E5%87%86%E6%88%96%E5%86%B7%E5%83%BB%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE%E7%9A%84%E8%AE%BE%E5%A4%87%E9%80%9A%E8%AE%AF/" itemprop="url">WINCC与使用非标准或冷僻通讯协议的设备通讯</a></h1>
+                <a class="post-title-link" href="/2019/01/25/%E5%85%8D%E8%B4%B9%E7%9A%84%E4%BA%91MQTT%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1%E7%AB%AF/" itemprop="url">免费的云MQTT测试服务端</a></h1>
         
 
         <div class="post-meta">
@@ -741,8 +741,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-09T12:31:50+08:00">
-                2019-03-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T11:03:59+08:00">
+                2019-01-25
               </time>
             
 
@@ -775,19 +775,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OPC/" itemprop="url" rel="index">
-                    <span itemprop="name">OPC</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/KEPServerEX/" itemprop="url" rel="index">
-                    <span itemprop="name">KEPServerEX</span>
+                  <a href="/categories/MQTT/" itemprop="url" rel="index">
+                    <span itemprop="name">MQTT</span>
                   </a>
                 </span>
 
@@ -825,8 +814,17 @@
       
         
           
-            <p>WINCC与使用一非标准通讯协议（厂家自定义协议）的设备如何通讯，这里提供个方案：使用OPC SERVER软件KEPServerEX 的 <code>User Configurable (U-CON)</code> 驱动与设备通讯，WINCC通过OPC驱动读写KEPServerEX数据。</p>
-<p>关于KEPServerEX 的 <strong>User Configurable (U-CON)</strong> 驱动的说明，可访问<a target="_blank" rel="noopener" href="https://www.kepware.com/zh-cn/products/kepserverex/drivers/u-con/"><strong>链接</strong><i class="fa fa-external-link"></i></a></p>
+            <h1 id="WINCC-V7-5支持云连接"><a href="#WINCC-V7-5支持云连接" class="headerlink" title="WINCC V7.5支持云连接"></a>WINCC V7.5支持云连接</h1><p>WINCC V7.5版新增了云连接功能，可以自动将变量从 WinCC 站传送到云。<br>可连接到<code>Amazon Web Services (MQTT)</code>、<code>Microsoft Azure (MQTT)</code> 云提供商，详细信息可查看WINCC帮助。</p>
+<p><img src="2019-01-25-11-06-16.png"></p>
+<h1 id="免费的云MQTT测试服务端"><a href="#免费的云MQTT测试服务端" class="headerlink" title="免费的云MQTT测试服务端"></a>免费的云MQTT测试服务端</h1><p>给大家分享一个免费的云MQTT服务端<a target="_blank" rel="noopener" href="https://test.mosquitto.org/">mosquitto<i class="fa fa-external-link"></i></a></p>
+<p><img src="2019-01-25-11-09-09.png"></p>
+<p>连接方法网站内有详细的说明。</p>
+<blockquote>
+<p>生成客户端证书和密钥的工具可在此下载<br><a target="_blank" rel="noopener" href="http://slproweb.com/products/Win32OpenSSL.html">http://slproweb.com/products/Win32OpenSSL.html<i class="fa fa-external-link"></i></a></p>
+</blockquote>
+<p><img src="2019-01-25-11-10-41.png"></p>
+<p>通过MQTT客户端可订阅WINCC上传到服务端的数据</p>
+<p><img src="2019-01-25-11-11-00.gif"></p>
 
           
         
@@ -875,7 +873,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/03/09/S7-1200-OPC%E9%80%9A%E8%AE%AF%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0DB%E5%9C%B0%E5%9D%80%E6%9D%A1%E7%9B%AE/">
+    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/01/24/%E5%85%B3%E4%BA%8E%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5S7-200-SMART-PLC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -894,7 +892,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/09/S7-1200-OPC%E9%80%9A%E8%AE%AF%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0DB%E5%9C%B0%E5%9D%80%E6%9D%A1%E7%9B%AE/" itemprop="url">S7-1200 OPC通讯中如何添加DB地址条目</a></h1>
+                <a class="post-title-link" href="/2019/01/24/%E5%85%B3%E4%BA%8E%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5S7-200-SMART-PLC/" itemprop="url">关于远程连接S7-200 SMART PLC</a></h1>
         
 
         <div class="post-meta">
@@ -906,8 +904,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-09T12:04:27+08:00">
-                2019-03-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-24T15:37:15+08:00">
+                2019-01-24
               </time>
             
 
@@ -929,8 +927,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WINCC/" itemprop="url" rel="index">
-                    <span itemprop="name">WINCC</span>
+                  <a href="/categories/S7-200-SMART/" itemprop="url" rel="index">
+                    <span itemprop="name">S7-200 SMART</span>
                   </a>
                 </span>
 
@@ -940,8 +938,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OPC/" itemprop="url" rel="index">
-                    <span itemprop="name">OPC</span>
+                  <a href="/categories/PLC/" itemprop="url" rel="index">
+                    <span itemprop="name">PLC</span>
                   </a>
                 </span>
 
@@ -951,8 +949,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/S7-1200/" itemprop="url" rel="index">
-                    <span itemprop="name">S7-1200</span>
+                  <a href="/categories/%E9%80%9A%E8%AE%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">通讯</span>
                   </a>
                 </span>
 
@@ -990,65 +988,19 @@
       
         
           
-            <h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h1><p>WinCC自V7.2版本起，新增加了“SIMATIC S7-1200，S7-1500 Channel”通道，用于WinCC与 S7-1200/S7-1500 PLC之间的通信。此驱动只支持以太网通讯，基于 TCP/IP 协议。</p>
-<p>而对于低版本的WinCC，通常采用的方法是：</p>
-<p>STEP 7 (TIA Portal)中组态SIMATIC PC Station作为OPC SERVER（SIMATIC NET PC Software）与S7-1200 PLC建立通讯（如基于 ISO-on-TCP 的 S7 协议），WINCC通过OPC驱动访问服务。如何组态就不叙述，网上资料很多。</p>
-<p><img src="2019-03-09-12-08-20.png"></p>
-<p>会遇到个问题，就是在OPC Scout中无法添加DB数据块条目。</p>
-<p><img src="2019-03-09-12-08-45.png"></p>
-<h1 id="2-了解一下OPC-Scout"><a href="#2-了解一下OPC-Scout" class="headerlink" title="2.了解一下OPC Scout"></a>2.了解一下OPC Scout</h1><p>OPC Scout是什么，它是一个调试和测试OPC系统的支持工具，主要功能包括：</p>
-<ul>
-<li><strong>浏览和显示可用的OPC服务器</strong></li>
-<li><strong>对于OPC UA，支持使用“发现”功能浏览对象</strong></li>
-<li><strong>创建/保存连接要获取的对象</strong></li>
-<li><strong>测试连接和对象</strong></li>
-</ul>
-<p>SIMATIC PC Station作为OPC SERVER和它没有太大关系。STEP 7 (TIA Portal)组态下载到PC Station后，运行Simatic OPC DA Server（进程opcdaserver.exe），WINCC即可建立OPC Client连接，添加变量访问S7-1200 PLC。</p>
-<p><img src="2019-03-09-12-11-01.png"></p>
-<h1 id="3-不同数据类型的DB变量对应的OPC条目格式"><a href="#3-不同数据类型的DB变量对应的OPC条目格式" class="headerlink" title="3.不同数据类型的DB变量对应的OPC条目格式"></a>3.不同数据类型的DB变量对应的OPC条目格式</h1><p>主要类型对应格式：</p>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>条目格式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>BOOL</td>
-<td>X0.0</td>
-</tr>
-<tr>
-<td>BYTE</td>
-<td>B0</td>
-</tr>
-<tr>
-<td>WORD</td>
-<td>W0</td>
-</tr>
-<tr>
-<td>DWORD</td>
-<td>D0</td>
-</tr>
-<tr>
-<td>INT</td>
-<td>INT0</td>
-</tr>
-<tr>
-<td>DINT</td>
-<td>DINT0</td>
-</tr>
-<tr>
-<td>REAL</td>
-<td>REAL0</td>
-</tr>
-</tbody></table>
-<p>如读取DB1.DBW2的OPC条目名称为：S7:[S7_Connection_1]DB1,W2，其中S7对应OPC SERVER与PLC通讯类型；S7_Connection_1对应连接名称；DB1为DB块编号，对应区域标识（包括M、I、Q）；W2中W为WORD，对应数据类型标识，2对应起始地址；对于数组还有数据长度。</p>
-<p><img src="2019-03-09-12-12-21.png"></p>
-<p>然后把“属性-地址”中“8210”修改成“18”。包括OPC条目格式，这些都涉及到OPC协议一些核心内容，以后会分享些相关内容给大家。</p>
-<p><img src="2019-03-09-12-12-35.png"></p>
-<p>这种通过绝对地址访问DB数据，需要取消DB的“优化的块访问”。</p>
-<h1 id="4-其它"><a href="#4-其它" class="headerlink" title="4.其它"></a>4.其它</h1><p>关于把STEP 7 (TIA Portal)中变量导入OPC Scout（符号表中的符号包括在 OPC 服务器的系统数据中，可使用此方法代替上面方法访问DB）；OPC 服务器访问优化数据块，可查看TIA Portal帮助。若遇到什么问题可给我留言。</p>
-<p>对于其它opc server如kepserverex ，也可直接在WINCC使用该opc server条目格式如Channel1.Device1.Q0.1访问PLC，省略在kepserverex建立变量条目。</p>
+            <p>远程连接一台S7-200 SMART PLC，网络方案如下图：</p>
+<p><img src="2019-01-24-15-39-40.png"></p>
+<p>PC2拥有公网IP，配置为vpn server，PC1和PC3通过vpn连接到PC2，PC3局域网连接ip地址为192.168.1.200的s7-200 smart plc，在PC3上把plc的102端口映射到PC3 vpn client ip的102端口，这样PC1上的STEP 7-MicroWIN SMART就可以通过PC3 vpn client ip的102端口连接plc了。</p>
+<p>当打开STEP 7-MicroWIN SMART，准备连接plc</p>
+<p><img src="2019-01-24-15-40-15.png"></p>
+<p>可在通信接口里竟然没有vpn 适配器</p>
+<p><img src="2019-01-24-15-40-30.png"></p>
+<p>正好pc1上安装有KEPServerEX 6，打开发现是可以扫描到vpn适配器，这说明STEP 7-MicroWIN SMART扫描接口的能力还有待加强。</p>
+<p><img src="2019-01-24-15-40-46.png"></p>
+<p>可是STEP 7-MicroWIN SMART无法选择需要的通讯接口，怎么连接？更谈不上可以扫描到在线plc了。那既然知道待连接的ip地址，直接添加ip可不可以连接，添加pc3 vpn client ip（192.168.2.103）后，点击“确认”，plc直接连接上了。</p>
+<p><img src="2019-01-24-15-41-18.png"></p>
+<p>这个可以给大家在连接s7-200 smart plc解决类似的问题提供个参考。</p>
+<p><i class="fa fa-pencil"></i></p>
 
           
         
@@ -1097,7 +1049,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/01/27/%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8Visual-Studio-Code/">
+    <link itemprop="mainEntityOfPage" href="https://robin1214.github.io/2019/01/24/S7-200-SMART-PLC-%E4%B8%80%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1116,7 +1068,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/27/%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8Visual-Studio-Code/" itemprop="url">代码编辑器Visual Studio Code</a></h1>
+                <a class="post-title-link" href="/2019/01/24/S7-200-SMART-PLC-%E4%B8%80%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" itemprop="url">S7-200 SMART PLC 一种自定义定时器的实现方法</a></h1>
         
 
         <div class="post-meta">
@@ -1128,8 +1080,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T13:15:00+08:00">
-                2019-01-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-24T15:28:09+08:00">
+                2019-01-24
               </time>
             
 
@@ -1151,8 +1103,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
+                  <a href="/categories/S7-200-SMART/" itemprop="url" rel="index">
+                    <span itemprop="name">S7-200 SMART</span>
                   </a>
                 </span>
 
@@ -1162,19 +1114,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VBScript/" itemprop="url" rel="index">
-                    <span itemprop="name">VBScript</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VBA/" itemprop="url" rel="index">
-                    <span itemprop="name">VBA</span>
+                  <a href="/categories/PLC/" itemprop="url" rel="index">
+                    <span itemprop="name">PLC</span>
                   </a>
                 </span>
 
@@ -1212,13 +1153,13 @@
       
         
           
-            <h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong><i class="fa fa-external-link"></i></a>（简称VS Code）是一个由微软开发的，同时支持Windows、Linux、和MacOS系统且开放源代码的代码编辑器，它支持测试，并内置了Git版本控制功能，同时也具有开发环境功能，例如代码补全、代码片段、和代码重构等，该编辑器支持用户个人化配置，例如改变主题颜色、键盘快捷方式等各种属性和参数，还在编辑器中内置了扩展程序管理的功能。</p>
-<p><img src="2019-01-27-13-21-55.png"></p>
-<h1 id="2-开发"><a href="#2-开发" class="headerlink" title="2.开发"></a>2.开发</h1><p><strong>Visual Studio Code</strong> 基于 <strong>Electron</strong> 开发。<strong>Electron</strong> 是一个基于 <strong>Chromium</strong> 的项目，可用于开发基于 <strong>Node.js</strong> 的本地应用程序。<strong>Visual Studio Code</strong> 使用 Blink 排版引擎渲染用户界面。虽然 <strong>Visual Studio Code</strong> 基于 Electron 框架，但并不是Atom的复刻。Code是由“Monaco”的编辑器核心制作，与 Visual Studio Team Services 相同。</p>
-<h1 id="3-历史"><a href="#3-历史" class="headerlink" title="3.历史"></a>3.历史</h1><p>微软在2015 Build大会上宣布即将开发 <strong>Visual Studio Code</strong>，在2015年4月29日发布第一个预览版本。<br>2015年11月18日，Code团队将其在GitHub上开源，并采用MIT许可证，同时宣布将支持扩展功能。<br>2016年4月14日，<strong>Visual Studio Code</strong>正式版发布，版本号为1.0.0。</p>
-<h1 id="4-功能和语言支持"><a href="#4-功能和语言支持" class="headerlink" title="4.功能和语言支持"></a>4.功能和语言支持</h1><p><strong>Visual Studio Code</strong>支持多种编程语言。与其他编辑器不同的是，Code的许多功能并不在菜单中显示，而是通过“命令面板”来调用。用户可以在命令面板中搜索和输入命令，从而实现指定功能，例如安装插件、设置属性等。默认地，打开命令面板的快捷键是<code>Ctrl+Shift+P</code>。<br>Code具备了现代文本编辑器所具有的功能，例如更改字符编码、更换换行符等。<br>下表是<strong>Visual Studio Code</strong>原生支持的语言：</p>
-<p><img src="2019-01-27-13-27-12.png"></p>
-<p><strong>Visual Studio Code</strong>对<code>C#</code>、<code>JavaScript</code>、和<code>TypeScript</code>的原生支持最为完备。<br>此外<strong>Visual Studio Code</strong>还支持扩展程序。通过安装扩展程序，Code可以支持更多新的语言、界面主题、测试器，以及更多的增值服务。<strong>Visual Studio Code</strong>的扩展程序运行于独立的进展中，确保编辑器运行速度不会被拖慢。</p>
+            <p>对于S7-200 SMART PLC，它的定时器资源是有限的，特别是高分辨率的定时器，如分辨率为1ms的定时器只有T32、T96两个，且不能同时使用：例如，不能同时使用 TON T32 和 TOF T32。</p>
+<p><img src="2019-01-24-15-30-29.png"></p>
+<p>那有没有其它方法实现简单的高分辨率定时？</p>
+<p>这里给大家分享个方法，就是使用“最后一次扫描循环的扫描时间”系统变量Last_Scan (地址SMW22)，代替TON、TOF定时器，实现简单的定时程序。</p>
+<p>程序：<br>定义一个字变量如SCANTON1（相当于TON定时器的当前值，单位为ms），在用户程序的每个周期和SMW22进行累加（<code>SCANTON1+ SMW22= SCANTON1</code>），然后对SCANTON1的值进行判断，当大于定时设定值时及表示定时时间到，并把SCANTON1清0 ，进行下一次定时。</p>
+<p><img src="2019-01-24-15-31-09.png"></p>
+<p>当然SMW22的循环扫描时间值，和用户程序的大小有关，如果你程序的最大循环扫描时间小于10ms，那用此方法，能得到分辨率高于10ms的定时器，如果你程序的最大循环扫描时间小于100ms，那用此方法，能得到分辨率高于100ms的定时器。</p>
 
           
         
@@ -1258,7 +1199,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1308,7 +1249,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1319,7 +1260,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1330,7 +1271,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

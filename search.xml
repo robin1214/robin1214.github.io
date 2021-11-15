@@ -1,80 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>S7-1200 OPC通讯中如何添加DB地址条目</title>
-    <url>/2019/03/09/S7-1200-OPC%E9%80%9A%E8%AE%AF%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0DB%E5%9C%B0%E5%9D%80%E6%9D%A1%E7%9B%AE/</url>
-    <content><![CDATA[<h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h1><p>WinCC自V7.2版本起，新增加了“SIMATIC S7-1200，S7-1500 Channel”通道，用于WinCC与 S7-1200/S7-1500 PLC之间的通信。此驱动只支持以太网通讯，基于 TCP/IP 协议。</p>
-<p>而对于低版本的WinCC，通常采用的方法是：</p>
-<p>STEP 7 (TIA Portal)中组态SIMATIC PC Station作为OPC SERVER（SIMATIC NET PC Software）与S7-1200 PLC建立通讯（如基于 ISO-on-TCP 的 S7 协议），WINCC通过OPC驱动访问服务。如何组态就不叙述，网上资料很多。</p>
-<p><img src="2019-03-09-12-08-20.png"></p>
-<p>会遇到个问题，就是在OPC Scout中无法添加DB数据块条目。</p>
-<p><img src="2019-03-09-12-08-45.png"></p>
-<h1 id="2-了解一下OPC-Scout"><a href="#2-了解一下OPC-Scout" class="headerlink" title="2.了解一下OPC Scout"></a>2.了解一下OPC Scout</h1><p>OPC Scout是什么，它是一个调试和测试OPC系统的支持工具，主要功能包括：</p>
-<ul>
-<li><strong>浏览和显示可用的OPC服务器</strong></li>
-<li><strong>对于OPC UA，支持使用“发现”功能浏览对象</strong></li>
-<li><strong>创建/保存连接要获取的对象</strong></li>
-<li><strong>测试连接和对象</strong></li>
-</ul>
-<p>SIMATIC PC Station作为OPC SERVER和它没有太大关系。STEP 7 (TIA Portal)组态下载到PC Station后，运行Simatic OPC DA Server（进程opcdaserver.exe），WINCC即可建立OPC Client连接，添加变量访问S7-1200 PLC。</p>
-<p><img src="2019-03-09-12-11-01.png"></p>
-<h1 id="3-不同数据类型的DB变量对应的OPC条目格式"><a href="#3-不同数据类型的DB变量对应的OPC条目格式" class="headerlink" title="3.不同数据类型的DB变量对应的OPC条目格式"></a>3.不同数据类型的DB变量对应的OPC条目格式</h1><p>主要类型对应格式：</p>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>条目格式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>BOOL</td>
-<td>X0.0</td>
-</tr>
-<tr>
-<td>BYTE</td>
-<td>B0</td>
-</tr>
-<tr>
-<td>WORD</td>
-<td>W0</td>
-</tr>
-<tr>
-<td>DWORD</td>
-<td>D0</td>
-</tr>
-<tr>
-<td>INT</td>
-<td>INT0</td>
-</tr>
-<tr>
-<td>DINT</td>
-<td>DINT0</td>
-</tr>
-<tr>
-<td>REAL</td>
-<td>REAL0</td>
-</tr>
-</tbody></table>
-<p>如读取DB1.DBW2的OPC条目名称为：S7:[S7_Connection_1]DB1,W2，其中S7对应OPC SERVER与PLC通讯类型；S7_Connection_1对应连接名称；DB1为DB块编号，对应区域标识（包括M、I、Q）；W2中W为WORD，对应数据类型标识，2对应起始地址；对于数组还有数据长度。</p>
-<p><img src="2019-03-09-12-12-21.png"></p>
-<p>然后把“属性-地址”中“8210”修改成“18”。包括OPC条目格式，这些都涉及到OPC协议一些核心内容，以后会分享些相关内容给大家。</p>
-<p><img src="2019-03-09-12-12-35.png"></p>
-<p>这种通过绝对地址访问DB数据，需要取消DB的“优化的块访问”。</p>
-<h1 id="4-其它"><a href="#4-其它" class="headerlink" title="4.其它"></a>4.其它</h1><p>关于把STEP 7 (TIA Portal)中变量导入OPC Scout（符号表中的符号包括在 OPC 服务器的系统数据中，可使用此方法代替上面方法访问DB）；OPC 服务器访问优化数据块，可查看TIA Portal帮助。若遇到什么问题可给我留言。</p>
-<p>对于其它opc server如kepserverex ，也可直接在WINCC使用该opc server条目格式如Channel1.Device1.Q0.1访问PLC，省略在kepserverex建立变量条目。</p>
-]]></content>
-      <categories>
-        <category>WINCC</category>
-        <category>OPC</category>
-        <category>S7-1200</category>
-      </categories>
-      <tags>
-        <tag>S7-1200</tag>
-        <tag>WINCC</tag>
-        <tag>SIMATIC NET OPC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>S7-200 SMART PLC 一种自定义定时器的实现方法</title>
     <url>/2019/01/24/S7-200-SMART-PLC-%E4%B8%80%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>对于S7-200 SMART PLC，它的定时器资源是有限的，特别是高分辨率的定时器，如分辨率为1ms的定时器只有T32、T96两个，且不能同时使用：例如，不能同时使用 TON T32 和 TOF T32。</p>
@@ -117,100 +43,8 @@
         <category>STEP7</category>
       </categories>
       <tags>
-        <tag>WINCC</tag>
         <tag>STEP7</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WINCC与使用非标准或冷僻通讯协议的设备通讯</title>
-    <url>/2019/03/09/WINCC%E4%B8%8E%E4%BD%BF%E7%94%A8%E9%9D%9E%E6%A0%87%E5%87%86%E6%88%96%E5%86%B7%E5%83%BB%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE%E7%9A%84%E8%AE%BE%E5%A4%87%E9%80%9A%E8%AE%AF/</url>
-    <content><![CDATA[<p>WINCC与使用一非标准通讯协议（厂家自定义协议）的设备如何通讯，这里提供个方案：使用OPC SERVER软件KEPServerEX 的 <code>User Configurable (U-CON)</code> 驱动与设备通讯，WINCC通过OPC驱动读写KEPServerEX数据。</p>
-<p>关于KEPServerEX 的 <strong>User Configurable (U-CON)</strong> 驱动的说明，可访问<a href="https://www.kepware.com/zh-cn/products/kepserverex/drivers/u-con/"><strong>链接</strong><i class="fa fa-external-link"></i></a></p>
-]]></content>
-      <categories>
-        <category>WINCC</category>
-        <category>OPC</category>
-        <category>KEPServerEX</category>
-      </categories>
-      <tags>
         <tag>WINCC</tag>
-        <tag>KEPServerEX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WINCC读写Excel文件及信息记录</title>
-    <url>/2019/01/25/WINCC%E8%AF%BB%E5%86%99Excel%E6%96%87%E4%BB%B6%E5%8F%8A%E4%BF%A1%E6%81%AF%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="1-VBScript脚本读写Excel文件"><a href="#1-VBScript脚本读写Excel文件" class="headerlink" title="1.VBScript脚本读写Excel文件"></a>1.VBScript脚本读写Excel文件</h1><p>使用一个示例来讲解：打开Excel文件book1.xls、book2.xls，把book1表Sheet1单元A1的内容赋值给book2表Sheet1单元B1。</p>
-<figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="comment">&#x27;声明变量</span></span><br><span class="line"><span class="keyword">Dim</span> ExcelApp</span><br><span class="line"><span class="keyword">Dim</span> Workbook1</span><br><span class="line"><span class="keyword">Dim</span> Workbook2</span><br><span class="line"><span class="keyword">Dim</span> Workbook1_Sheet1</span><br><span class="line"><span class="keyword">Dim</span> Workbook2_Sheet1</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27;创建Excel应用程序对象</span></span><br><span class="line"><span class="keyword">Set</span> ExcelApp = CreateObject(<span class="string">&quot;Excel.Application&quot;</span>)</span><br><span class="line"></span><br><span class="line">ExcelApp.Visible = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27;打开book1、book2文件，创建工作簿对象</span></span><br><span class="line"><span class="keyword">Set</span> Workbook1 = ExcelApp.Workbooks.open(<span class="string">&quot;C:\Users\liubing\Desktop\book1.xls&quot;</span>)</span><br><span class="line"><span class="keyword">Set</span> Workbook2 = ExcelApp.Workbooks.open(<span class="string">&quot;C:\Users\liubing\Desktop\book2.xls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27;创建表对象</span></span><br><span class="line"><span class="keyword">Set</span> Workbook1_Sheet1 = Workbook1.Worksheets(<span class="string">&quot;Sheet1&quot;</span>)</span><br><span class="line"><span class="keyword">Set</span> Workbook2_Sheet1 = Workbook2.Worksheets(<span class="string">&quot;Sheet1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27;读取文件book1表Sheet1单元A1的内容赋值给文件book2表Sheet1单元B1</span></span><br><span class="line">Workbook2_Sheet1.Range(<span class="string">&quot;B1&quot;</span>).Value = Workbook1_Sheet1.Range(<span class="string">&quot;A1&quot;</span>).Value</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27;保存文件book2.xls</span></span><br><span class="line">Workbook2.Save</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27;关闭工作簿退出应用</span></span><br><span class="line">ExcelApp.Workbooks.Close</span><br><span class="line">ExcelApp.Quit</span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27;释放各对象资源</span></span><br><span class="line"><span class="keyword">Set</span> Workbook1_Sheet1 = <span class="literal">Nothing</span></span><br><span class="line"><span class="keyword">Set</span> Workbook2_Sheet1 = <span class="literal">Nothing</span></span><br><span class="line"><span class="keyword">Set</span> Workbook1 = <span class="literal">Nothing</span></span><br><span class="line"><span class="keyword">Set</span> Workbook2 = <span class="literal">Nothing</span></span><br><span class="line"><span class="keyword">Set</span> ExcelApp = <span class="literal">Nothing</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="2-VBScript脚本执行的信息记录"><a href="#2-VBScript脚本执行的信息记录" class="headerlink" title="2.VBScript脚本执行的信息记录"></a>2.VBScript脚本执行的信息记录</h1><p>对于投运后的WINCC项目，一般不启用VBS的调试选项。</p>
-<p><img src="2019-01-25-10-02-16.png"></p>
-<p>如果运行中HMI突然跳出个错误信息对话框，可能会吓了运行人员。</p>
-<p><img src="2019-01-25-10-02-34.png"></p>
-<p>但是对于运行中的系统，通常需要log记录一些脚本执行中的信息（如脚本被执行了进行了哪些操作、脚本执行中发生了哪些问题），以便当系统发生故障时提供诊断信息。</p>
-<p>这里提供一种使用“系统事件功能”记录脚本执行中信息的方法。</p>
-<h1 id="3-写入系统事件"><a href="#3-写入系统事件" class="headerlink" title="3.写入系统事件"></a>3.写入系统事件</h1><h2 id="3-1VBscript启用错误处理"><a href="#3-1VBscript启用错误处理" class="headerlink" title="3.1VBscript启用错误处理"></a>3.1VBscript启用错误处理</h2><p>方法：在脚本过程中添加语句：<code>On Error Resume Next</code>，以调用错误信息。一条<a href="https://docs.microsoft.com/en-us/previous-versions//sbf5ze0e%28v%3dvs.85%29">错误信息<i class="fa fa-external-link"></i></a>主要包括3个部分:</p>
-<ul>
-<li><strong>Err.Number</strong></li>
-<li><strong>Err.Source</strong></li>
-<li><strong>Err.Description</strong></li>
-</ul>
-<p>可随时检查脚本执行中信息代码<strong>Err.Number</strong>的值，如对象访问的返回结果。当发生访问对象错误时，会转到紧接着发生错误的语句之后的语句，并在此继续运行。</p>
-<p>如上面的脚本，当打开的book1工作簿不存在时，声明工作簿对象发生错误，通过判断<strong>Err.Number</strong>的值，并根据错误类型来做相应的处理（如弹出窗口，或在画面中诊断窗口输出，或写入系统事件等）</p>
-<p>修改脚本：</p>
-<figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Set</span> Workbook1 = ExcelApp.Workbooks.open(<span class="string">&quot;C:\Users\liubing\Desktop\book1.xls&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">If</span> Err.Number &lt;&gt; <span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">    ......</span><br><span class="line">    Err.Clear</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-2VBScript写入系统事件"><a href="#3-2VBScript写入系统事件" class="headerlink" title="3.2VBScript写入系统事件"></a>3.2VBScript写入系统事件</h2><p>VBScript使用<span style="color:#00E3E3;">WScript.Shell</span>对象<a href="https://docs.microsoft.com/en-us/previous-versions//b4ce6by3%28v%3dvs.85%29">.LogEvent<i class="fa fa-external-link"></i></a>方法写入系统应用程序事件:<code>objShell.LogEvent intType, strMessage [,strTarget]</code></p>
-<p><img src="2019-01-25-10-28-49.png"></p>
-<p>方法中参数intType为事件的ID，用来定义事件的级别。</p>
-<p>修改脚本：</p>
-<figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="comment">&#x27;创建WScript.Shell对象</span></span><br><span class="line"><span class="keyword">Dim</span> VBSLogEvent</span><br><span class="line"><span class="keyword">Set</span> VBSLogEvent = CreateObject(<span class="string">&quot;WScript.Shell&quot;</span>)</span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line"><span class="keyword">Set</span> Workbook1 = ExcelApp.Workbooks.open(<span class="string">&quot;C:\Users\liubing\Desktop\book1.xls&quot;</span>)</span><br><span class="line"><span class="keyword">If</span> Err.Number &lt;&gt; <span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line"><span class="comment">&#x27;调用方法写入WHS应用程序事件</span></span><br><span class="line">    <span class="keyword">Call</span> VBSLogEvent.LogEvent(<span class="number">1</span>,Err.Number &amp; v bCrLf &amp; <span class="string">&quot; Srce: &quot;</span> &amp; Err.Source  &amp; vbCrLf  &amp; <span class="string">&quot; Desc: &quot;</span> &amp;  Err.Description)</span><br><span class="line">    Err.Clear</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="4-配置事件查看器"><a href="#4-配置事件查看器" class="headerlink" title="4.配置事件查看器"></a>4.配置事件查看器</h1><p>打开系统“事件查看器”，创建自定义视图来单独显示WHS应用程序事件</p>
-<p><img src="2019-01-25-10-33-21.png"></p>
-<p>“记录时间”选择“任何时间”，“事件级别”可全部选中，也可以按不同的事件级别创建更细分的视图。</p>
-<p><img src="2019-01-25-10-33-36.png"></p>
-<p>“按源”来显示事件，“事件来源”选择“WHS”</p>
-<p><img src="2019-01-25-10-33-50.png"></p>
-<p>选择“所有事件ID”，也可以按不同的ID创建更细分的视图。“关键字”选择“所有关键字”。</p>
-<p><img src="2019-01-25-10-34-05.png"></p>
-<p>其它选项使用默认设置即可，具体使用方法可查看事件查看器帮助。</p>
-<p><img src="2019-01-25-10-34-54.png"></p>
-<p>点击“确认”，在弹出的对话框为创建的视图输入一个名称，再点击“确认”，一个自定义的事件视图即创建完成。</p>
-<p><img src="2019-01-25-10-35-12.png"></p>
-<p>从中可以查看Vbscript脚本记录的各种信息：</p>
-<p><img src="2019-01-25-10-35-26.png"></p>
-]]></content>
-      <categories>
-        <category>WINCC</category>
-        <category>VBScript</category>
-      </categories>
-      <tags>
-        <tag>WINCC</tag>
-        <tag>VBScript</tag>
-        <tag>EXCEL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>代码编辑器Visual Studio Code</title>
-    <url>/2019/01/27/%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8Visual-Studio-Code/</url>
-    <content><![CDATA[<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><p><a href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong><i class="fa fa-external-link"></i></a>（简称VS Code）是一个由微软开发的，同时支持Windows、Linux、和MacOS系统且开放源代码的代码编辑器，它支持测试，并内置了Git版本控制功能，同时也具有开发环境功能，例如代码补全、代码片段、和代码重构等，该编辑器支持用户个人化配置，例如改变主题颜色、键盘快捷方式等各种属性和参数，还在编辑器中内置了扩展程序管理的功能。</p>
-<p><img src="2019-01-27-13-21-55.png"></p>
-<h1 id="2-开发"><a href="#2-开发" class="headerlink" title="2.开发"></a>2.开发</h1><p><strong>Visual Studio Code</strong> 基于 <strong>Electron</strong> 开发。<strong>Electron</strong> 是一个基于 <strong>Chromium</strong> 的项目，可用于开发基于 <strong>Node.js</strong> 的本地应用程序。<strong>Visual Studio Code</strong> 使用 Blink 排版引擎渲染用户界面。虽然 <strong>Visual Studio Code</strong> 基于 Electron 框架，但并不是Atom的复刻。Code是由“Monaco”的编辑器核心制作，与 Visual Studio Team Services 相同。</p>
-<h1 id="3-历史"><a href="#3-历史" class="headerlink" title="3.历史"></a>3.历史</h1><p>微软在2015 Build大会上宣布即将开发 <strong>Visual Studio Code</strong>，在2015年4月29日发布第一个预览版本。<br>2015年11月18日，Code团队将其在GitHub上开源，并采用MIT许可证，同时宣布将支持扩展功能。<br>2016年4月14日，<strong>Visual Studio Code</strong>正式版发布，版本号为1.0.0。</p>
-<h1 id="4-功能和语言支持"><a href="#4-功能和语言支持" class="headerlink" title="4.功能和语言支持"></a>4.功能和语言支持</h1><p><strong>Visual Studio Code</strong>支持多种编程语言。与其他编辑器不同的是，Code的许多功能并不在菜单中显示，而是通过“命令面板”来调用。用户可以在命令面板中搜索和输入命令，从而实现指定功能，例如安装插件、设置属性等。默认地，打开命令面板的快捷键是<code>Ctrl+Shift+P</code>。<br>Code具备了现代文本编辑器所具有的功能，例如更改字符编码、更换换行符等。<br>下表是<strong>Visual Studio Code</strong>原生支持的语言：</p>
-<p><img src="2019-01-27-13-27-12.png"></p>
-<p><strong>Visual Studio Code</strong>对<code>C#</code>、<code>JavaScript</code>、和<code>TypeScript</code>的原生支持最为完备。<br>此外<strong>Visual Studio Code</strong>还支持扩展程序。通过安装扩展程序，Code可以支持更多新的语言、界面主题、测试器，以及更多的增值服务。<strong>Visual Studio Code</strong>的扩展程序运行于独立的进展中，确保编辑器运行速度不会被拖慢。</p>
-]]></content>
-      <categories>
-        <category>C</category>
-        <category>VBScript</category>
-        <category>VBA</category>
-      </categories>
-      <tags>
-        <tag>VBScript</tag>
-        <tag>C</tag>
-        <tag>VBA</tag>
       </tags>
   </entry>
   <entry>
@@ -276,37 +110,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于WINCC Modbus TCPIP驱动如何读取64位浮点数</title>
-    <url>/2019/01/22/%E5%85%B3%E4%BA%8EWINCC-Modbus-TCPIP%E9%A9%B1%E5%8A%A8%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%9664%E4%BD%8D%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h1><p>大家知道目前为止WINCC Modbus TCPIP驱动是不支持64位浮点数的</p>
-<p><img src="2019-01-23-13-10-18.png"></p>
-<p>但做项目往往会碰到从站使用这种类型数据，如累积流量值、电度量。那如何读取呢？</p>
-<h1 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h1><p>Modbus协议以一系列具有不同特征的数据模型为基础。四个基本模型为：</p>
-<p><img src="2019-01-23-13-11-03.png"></p>
-<p>对于一个64位浮点数，就是以16-bits word为数据模型，4个连续的保持寄存器。所以可以使用功能码0x03分别读取这4个连续的保持寄存器值，然后还原为原64位浮点数。</p>
-<p>如以Modbus Slave为从站，设置WINCC要读取的64位浮点数，其保持寄存器地址为4x00001-4x00004。</p>
-<p><img src="2019-01-23-13-11-31.png"></p>
-<p>在WINCC Modbus TCPIP驱动添加四个“无符号的 16 位值”变量读取这4个保持寄存器的值</p>
-<p><img src="2019-01-23-13-11-58.png"></p>
-<p>然后用以下C脚本还原为64位浮点数</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;apdefap.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnClick</span><span class="params">(<span class="keyword">char</span>* lpszPictureName, <span class="keyword">char</span>* lpszObjectName, <span class="keyword">char</span>* lpszPropertyName)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">  WORD w1;</span><br><span class="line">  WORD w2;</span><br><span class="line">  WORD w3;</span><br><span class="line">  WORD w4;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">double</span> a;</span><br><span class="line"></span><br><span class="line">  w1=GetTagWord(<span class="string">&quot;w1&quot;</span>);	<span class="comment">//Return-Type: WORD </span></span><br><span class="line">  w2=GetTagWord(<span class="string">&quot;w2&quot;</span>);	<span class="comment">//Return-Type: WORD </span></span><br><span class="line">  w3=GetTagWord(<span class="string">&quot;w3&quot;</span>);	<span class="comment">//Return-Type: WORD </span></span><br><span class="line">  w4=GetTagWord(<span class="string">&quot;w4&quot;</span>);	<span class="comment">//Return-Type: WORD </span></span><br><span class="line"></span><br><span class="line">  ((WORD*)&amp;a)[<span class="number">0</span>]=w1; </span><br><span class="line">  ((WORD*)&amp;a)[<span class="number">1</span>]=w2;</span><br><span class="line">  ((WORD*)&amp;a)[<span class="number">2</span>]=w3; </span><br><span class="line">  ((WORD*)&amp;a)[<span class="number">3</span>]=w4; </span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;a = %lf\r\n&quot;</span>,a); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有一点要注意：为了保证数据的一致性，4个连续的保持寄存器必须在一帧报文读取。如下面的情况，可能会导致还原的浮点数不正确：</p>
-<p>WINCC需读取Modbus Slave的一个16位整型数据（其保持寄存器地址为4x00001）、一个64位浮点数（其保持寄存器起始地址为4x00100）（当然，对于这么设计从站设备的人，可以认为他不专业）。</p>
-<p>由于WINCC优化了其Modbus TCPIP驱动报文，64位浮点数的4个寄存器会被分成两帧报文读取。</p>
-<p><img src="2019-01-23-13-13-55.png"></p>
-]]></content>
-      <categories>
-        <category>WINCC</category>
-        <category>通讯</category>
-      </categories>
-      <tags>
-        <tag>WINCC</tag>
-        <tag>SIEMENS</tag>
-        <tag>Modbus</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于远程连接S7-200 SMART PLC</title>
     <url>/2019/01/24/%E5%85%B3%E4%BA%8E%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5S7-200-SMART-PLC/</url>
     <content><![CDATA[<p>远程连接一台S7-200 SMART PLC，网络方案如下图：</p>
@@ -330,25 +133,6 @@
       </categories>
       <tags>
         <tag>S7-200 SMART</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新版WINCC V7.5 ASIA</title>
-    <url>/2019/01/22/%E6%96%B0%E7%89%88WINCC-V7-5-ASIA/</url>
-    <content><![CDATA[<p>发售于2018年9月份：</p>
-<p><img src="2019-01-23-08-23-33.png"></p>
-<p>支持的操作系统：</p>
-<p><img src="2019-01-23-08-24-40.png"></p>
-<p>更多技术规格：<br><a href="https://mall.industry.siemens.com/mall/en/WW/Catalog/Products/10042373#More%20information">https://mall.industry.siemens.com/mall/en/WW/Catalog/Products/10042373#More%20information</a></p>
-<p>具体兼容性可通过下面链接在线查询：<br><a href="https://support.industry.siemens.com/kompatool/pages/main/index.jsf">https://support.industry.siemens.com/kompatool/pages/main/index.jsf</a></p>
-<p>DEMO版下载链接：<br>百度网盘：<br>链接：<a href="https://pan.baidu.com/s/1VRAugxtL9jIwFlNVF7Oxpg">https://pan.baidu.com/s/1VRAugxtL9jIwFlNVF7Oxpg</a><br>提取码：f63f </p>
-]]></content>
-      <categories>
-        <category>WINCC</category>
-      </categories>
-      <tags>
-        <tag>WINCC</tag>
-        <tag>SIEMENS</tag>
       </tags>
   </entry>
   <entry>
@@ -423,8 +207,8 @@
         <category>Data</category>
       </categories>
       <tags>
-        <tag>WINCC</tag>
         <tag>S7-200 SMART</tag>
+        <tag>WINCC</tag>
         <tag>PLC</tag>
         <tag>Data</tag>
       </tags>
@@ -463,8 +247,8 @@
         <category>STEP7</category>
       </categories>
       <tags>
-        <tag>WINCC</tag>
         <tag>STEP7</tag>
+        <tag>WINCC</tag>
       </tags>
   </entry>
 </search>

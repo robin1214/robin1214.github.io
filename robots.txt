@@ -1,0 +1,14 @@
+# Rule 1
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /tags/
+Allow: /categories/
+
+# Rule 2
+User-agent: *
+Disallow: /js
+Disallow: /css
+Disallow: /lib
+
+Sitemap: https://robin1214.github.io/sitemap.xml
